@@ -152,12 +152,6 @@ const startAgents = async () => {
     serverPort++;
   }
 
-  // upload some agent functionality into directClient
-  directClient.startAgent = async (character: Character) => {
-    // wrap it so we don't have to inject directClient later
-    return startAgent(character, directClient);
-  };
-
   directClient.start(serverPort);
 
   if (serverPort !== parseInt(settings.SERVER_PORT || "3000")) {
